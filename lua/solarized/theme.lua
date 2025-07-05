@@ -7,34 +7,34 @@ theme.loadSyntax = function ()
 
 	local syntax = {
 		Type =						{ fg = solarized.yellow }, -- int, long, char, etc.
-		StorageClass =				{ fg = solarized.cyan }, -- static, register, volatile, etc.
+		StorageClass =				{ fg = solarized.yellow }, -- static, register, volatile, etc.
 		Structure =					{ fg = solarized.yellow }, -- struct, union, enum, etc.
-		Constant =					{ fg = solarized.purple }, -- any constant
-		String =					{ fg = solarized.green, bg = solarized.none, style= 'italic' }, -- Any string
-		Character =					{ fg = solarized.orange }, -- any character constant: 'c', '\n'
-		Number =					{ fg = solarized.orange }, -- a number constant: 5
-		Boolean =					{ fg = solarized.orange }, -- a boolean constant: TRUE, false
-		Float =						{ fg = solarized.orange }, -- a floating point constant: 2.3e10
-		Statement =					{ fg = solarized.gray }, -- any statement
-		Label =						{ fg = solarized.yellow }, -- case, default, etc.
-		Operator =					{ fg = solarized.cyan }, -- sizeof", "+", "*", etc.
+		Constant =					{ fg = solarized.cyan }, -- any constant
+		String =					{ fg = solarized.cyan }, -- Any string
+		Character =					{ fg = solarized.cyan }, -- any character constant: 'c', '\n'
+		Number =					{ fg = solarized.cyan }, -- a number constant: 5
+		Boolean =					{ fg = solarized.cyan }, -- a boolean constant: TRUE, false
+		Float =						{ fg = solarized.cyan }, -- a floating point constant: 2.3e10
+		Statement =					{ fg = solarized.green }, -- any statement
+		Label =						{ fg = solarized.green }, -- case, default, etc.
+		Operator =					{ fg = solarized.green }, -- sizeof", "+", "*", etc.
 		Exception =					{ fg = solarized.cyan }, -- try, catch, throw
-		PreProc =					{ fg = solarized.yellow }, -- generic Preprocessor
-		Include =					{ fg = solarized.blue }, -- preprocessor #include
-		Define =					{ fg = solarized.gray }, -- preprocessor #define
-		Macro =						{ fg = solarized.cyan }, -- same as Define
-		Typedef =					{ fg = solarized.red }, -- A typedef
-		PreCondit =					{ fg = solarized.cyan }, -- preprocessor #if, #else, #endif, etc.
+		PreProc =					{ fg = solarized.orange }, -- generic Preprocessor
+		Include =					{ fg = solarized.orange }, -- preprocessor #include
+		Define =					{ fg = solarized.orange }, -- preprocessor #define
+		Macro =						{ fg = solarized.orange }, -- same as Define
+		Typedef =					{ fg = solarized.yellow }, -- A typedef
+		PreCondit =					{ fg = solarized.orange }, -- preprocessor #if, #else, #endif, etc.
 		Special =					{ fg = solarized.red }, -- any special symbol
-		SpecialChar =				{ fg = solarized.gray }, -- special character in a constant
+		SpecialChar =					{ fg = solarized.red }, -- special character in a constant
 		Tag =						{ fg = solarized.red }, -- you can use CTRL-] on this
-		Delimiter =					{ fg = solarized.cyan }, -- character that needs attention like , or .
-		SpecialComment =			{ fg = solarized.gray }, -- special things inside a comment
+		Delimiter =					{ fg = solarized.red }, -- character that needs attention like , or .
+		SpecialComment =				{ fg = solarized.red }, -- special things inside a comment
 		Debug =						{ fg = solarized.red }, -- debugging statements
-		Underlined =				{ fg = solarized.link, bg = solarized.none, style = 'underline' }, -- text that stands out, HTML links
+		Underlined =					{ fg = solarized.violet }, -- text that stands out, HTML links
 		Ignore =					{ fg = solarized.disabled }, -- left blank, hidden
-		Error =						{ fg = solarized.error, bg = solarized.none, style = 'bold,underline' }, -- any erroneous construct
-		Todo =						{ fg = solarized.purple, bg = solarized.none, style = 'bold,italic' }, -- anything that needs extra attention; mostly the keywords TODO FIXME and XXX
+		Error =						{ fg = solarized.red }, -- any erroneous construct
+		Todo =						{ fg = solarized.purple }, -- anything that needs extra attention; mostly the keywords TODO FIXME and XXX
 
         htmlLink = { fg = solarized.link, style = "underline" },
         htmlH1 = { fg = solarized.cyan, style = "bold" },
@@ -104,7 +104,7 @@ theme.loadEditor = function ()
 		DiffText =				{ fg = solarized.purple, bg = solarized.none, style = 'reverse' }, -- diff mode: Changed text within a changed line
 		EndOfBuffer =			{ fg = solarized.disabled },
 		ErrorMsg =				{ fg = solarized.none },
-		Folded =				{ fg = solarized.disabled, bg = solarized.none, style = 'italic' },
+		Folded =				{ fg = solarized.disabled, bg = solarized.none },
 		FoldColumn =			{ fg = solarized.blue },
 		IncSearch =				{ fg = solarized.highlight, bg = solarized.white, style = 'reverse' },
 		LineNr =				{ fg = solarized.line_numbers, bg = solarized.bg_alt },
@@ -122,10 +122,10 @@ theme.loadEditor = function ()
 		qfLineNr =				{ fg = solarized.highlight, bg = solarized.white, style = 'reverse' },
 		Search =				{ fg = solarized.highlight, bg = solarized.white, style = 'reverse' },
 		SpecialKey =			{ fg = solarized.yellow },
-		SpellBad =				{ fg = solarized.red, bg = solarized.none, style = 'italic,undercurl' },
-		SpellCap =				{ fg = solarized.blue, bg = solarized.none, style = 'italic,undercurl' },
-		SpellLocal =			{ fg = solarized.cyan, bg = solarized.none, style = 'italic,undercurl' },
-		SpellRare =				{ fg = solarized.yellow, bg = solarized.none, style = 'italic,undercurl' },
+		SpellBad =				{ fg = solarized.red, bg = solarized.none },
+		SpellCap =				{ fg = solarized.blue, bg = solarized.none },
+		SpellLocal =			{ fg = solarized.cyan, bg = solarized.none },
+		SpellRare =				{ fg = solarized.yellow, bg = solarized.none },
 		StatusLine =			{ fg = solarized.fg, bg = solarized.contrast },
 		StatusLineNC =  		{ fg = solarized.text, bg = solarized.disabled },
 		StatusLineTerm =		{ fg = solarized.fg, bg = solarized.contrast },
@@ -157,7 +157,7 @@ theme.loadEditor = function ()
         DashboardShortCut =                     { fg = solarized.gray },
         DashboardHeader =                       { fg = solarized.gray },
         DashboardCenter =                       { fg = solarized.gray },
-        DashboardFooter =                       { fg = solarized.green, style = "italic" },
+        DashboardFooter =                       { fg = solarized.green },
 
 	}
 
@@ -399,7 +399,7 @@ theme.loadPlugins = function()
         -- WhichKey
         WhichKey =                              { fg = solarized.accent , style = 'bold'},
         WhichKeyGroup =                         { fg = solarized.text },
-        WhichKeyDesc =                          { fg = solarized.blue, style = 'italic' },
+        WhichKeyDesc =                          { fg = solarized.blue },
         WhichKeySeperator =                     { fg = solarized.fg },
         WhichKeyFloating =                      { bg = solarized.float },
         WhichKeyFloat =                         { bg = solarized.float },
