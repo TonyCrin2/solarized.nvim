@@ -6,34 +6,51 @@ theme.loadSyntax = function ()
     -- Syntax highlight groups
 
 	local syntax = {
-		Type =						{ fg = solarized.yellow }, -- int, long, char, etc.
-		StorageClass =				{ fg = solarized.yellow }, -- static, register, volatile, etc.
-		Structure =					{ fg = solarized.yellow }, -- struct, union, enum, etc.
+		Normal = 					{ fg = solarized.base0 }, -- normal.
+		Comment = 					{ fg = solarized.base01 }, -- comments
+
 		Constant =					{ fg = solarized.cyan }, -- any constant
 		String =					{ fg = solarized.cyan }, -- Any string
 		Character =					{ fg = solarized.cyan }, -- any character constant: 'c', '\n'
 		Number =					{ fg = solarized.cyan }, -- a number constant: 5
 		Boolean =					{ fg = solarized.cyan }, -- a boolean constant: TRUE, false
 		Float =						{ fg = solarized.cyan }, -- a floating point constant: 2.3e10
+
+		Identifier =					{ fg = solarized.blue }, -- any variable name
+		syntax.Function =				{ fg = solarized.blue }, -- function name, also: methods for classes
+
 		Statement =					{ fg = solarized.green }, -- any statement
+		Conditional = 					{ fg = solarized.green }, -- if, then, else, endif, switch, etc.
+		syntax.Repeat = 				{ fg = solarized.green }, -- for, do, while, etc.
 		Label =						{ fg = solarized.green }, -- case, default, etc.
 		Operator =					{ fg = solarized.green }, -- sizeof", "+", "*", etc.
-		Exception =					{ fg = solarized.cyan }, -- try, catch, throw
+		syntax.Keyword = 				{ fg = solarized.green }, -- any other keyword
+		Exception =					{ fg = solarized.green }, -- try, catch, throw
+
 		PreProc =					{ fg = solarized.orange }, -- generic Preprocessor
 		Include =					{ fg = solarized.orange }, -- preprocessor #include
 		Define =					{ fg = solarized.orange }, -- preprocessor #define
 		Macro =						{ fg = solarized.orange }, -- same as Define
-		Typedef =					{ fg = solarized.yellow }, -- A typedef
 		PreCondit =					{ fg = solarized.orange }, -- preprocessor #if, #else, #endif, etc.
+		
+		Type =						{ fg = solarized.yellow }, -- int, long, char, etc.
+		StorageClass =					{ fg = solarized.yellow }, -- static, register, volatile, etc.
+		Structure =					{ fg = solarized.yellow }, -- struct, union, enum, etc.
+		Typedef =					{ fg = solarized.yellow }, -- A typedef
+		
 		Special =					{ fg = solarized.red }, -- any special symbol
 		SpecialChar =					{ fg = solarized.red }, -- special character in a constant
 		Tag =						{ fg = solarized.red }, -- you can use CTRL-] on this
 		Delimiter =					{ fg = solarized.red }, -- character that needs attention like , or .
 		SpecialComment =				{ fg = solarized.red }, -- special things inside a comment
 		Debug =						{ fg = solarized.red }, -- debugging statements
+		
 		Underlined =					{ fg = solarized.violet }, -- text that stands out, HTML links
+		
 		Ignore =					{ fg = solarized.disabled }, -- left blank, hidden
+		
 		Error =						{ fg = solarized.red }, -- any erroneous construct
+		
 		Todo =						{ fg = solarized.purple }, -- anything that needs extra attention; mostly the keywords TODO FIXME and XXX
 
         htmlLink = { fg = solarized.link, style = "underline" },
@@ -54,27 +71,27 @@ theme.loadSyntax = function ()
 
 	-- Italic comments
 	if vim.g.solarized_italic_comments == true then
-		syntax.Comment =		{fg = solarized.comments, bg = solarized.none, style = 'italic'} -- italic comments
+		syntax.Comment =				{fg = solarized.comments, bg = solarized.none, style = 'italic'} -- italic comments
 	else
-		syntax.Comment =		{fg = solarized.comments} -- normal comments
+		syntax.Comment =				{fg = solarized.comments} -- normal comments
 	end
 
 	-- Italic Keywords
 	if vim.g.solarized_italic_keywords == true then
-		syntax.Conditional =		{fg = solarized.yellow, bg = solarized.none, style = 'italic'} -- italic if, then, else, endif, switch, etc.
-		syntax.Keyword =			{fg = solarized.yellow, bg = solarized.none, style = 'italic'} -- italic for, do, while, etc.
-		syntax.Repeat =				{fg = solarized.yellow, bg = solarized.none, style = 'italic'} -- italic any other keyword
+		syntax.Conditional =				{fg = solarized.yellow, bg = solarized.none, style = 'italic'} -- italic if, then, else, endif, switch, etc.
+		syntax.Keyword =				{fg = solarized.yellow, bg = solarized.none, style = 'italic'} -- italic for, do, while, etc.
+		syntax.Repeat =					{fg = solarized.yellow, bg = solarized.none, style = 'italic'} -- italic any other keyword
 	else
-		syntax.Conditional =		{fg = solarized.yellow} -- normal if, then, else, endif, switch, etc.
-		syntax.Keyword =			{fg = solarized.yellow} -- normal for, do, while, etc.
-		syntax.Repeat =				{fg = solarized.yellow} -- normal any other keyword
+		syntax.Conditional =				{fg = solarized.yellow} -- normal if, then, else, endif, switch, etc.
+		syntax.Keyword =				{fg = solarized.yellow} -- normal for, do, while, etc.
+		syntax.Repeat =					{fg = solarized.yellow} -- normal any other keyword
 	end
 
 	-- Italic Function names
 	if vim.g.solarized_italic_functions == true then
-		syntax.Function =		{fg = solarized.blue, bg = solarized.none, style = 'italic'} -- italic funtion names
+		syntax.Function =				{fg = solarized.blue, bg = solarized.none, style = 'italic'} -- italic funtion names
 	else
-		syntax.Function =		{fg = solarized.blue} -- normal function names
+		syntax.Function =				{fg = solarized.blue} -- normal function names
 	end
 
 	if vim.g.solarized_italic_variables == true then
@@ -92,72 +109,72 @@ theme.loadEditor = function ()
     -- Editor highlight groups
 
 	local editor = {
-		NormalFloat =			{ fg = solarized.fg, bg = solarized.float }, -- normal text and background color
-		ColorColumn =			{ fg = solarized.none, bg = solarized.active }, --  used for the columns set with 'colorcolumn'
+		NormalFloat =				{ fg = solarized.fg, bg = solarized.float }, -- normal text and background color
+		ColorColumn =				{ fg = solarized.none, bg = solarized.active }, --  used for the columns set with 'colorcolumn'
 		Conceal =				{ fg = solarized.disabled }, -- placeholder characters substituted for concealed text (see 'conceallevel')
 		Cursor =				{ fg = solarized.cursor, bg = solarized.none, style = 'reverse' }, -- the character under the cursor
 		CursorIM =				{ fg = solarized.cursor, bg = solarized.none, style = 'reverse' }, -- like Cursor, but used when in IME mode
 		Directory =				{ fg = solarized.blue, bg = solarized.none }, -- directory names (and other special names in listings)
 		DiffAdd =				{ fg = solarized.green, bg = solarized.none, style = 'reverse' }, -- diff mode: Added line
-		DiffChange =			{ fg = solarized.orange, bg = solarized.none, style = 'reverse' }, --  diff mode: Changed line
-		DiffDelete =			{ fg = solarized.red, bg = solarized.none, style = 'reverse' }, -- diff mode: Deleted line
+		DiffChange =				{ fg = solarized.orange, bg = solarized.none, style = 'reverse' }, --  diff mode: Changed line
+		DiffDelete =				{ fg = solarized.red, bg = solarized.none, style = 'reverse' }, -- diff mode: Deleted line
 		DiffText =				{ fg = solarized.purple, bg = solarized.none, style = 'reverse' }, -- diff mode: Changed text within a changed line
-		EndOfBuffer =			{ fg = solarized.disabled },
+		EndOfBuffer =				{ fg = solarized.disabled },
 		ErrorMsg =				{ fg = solarized.none },
 		Folded =				{ fg = solarized.disabled, bg = solarized.none },
-		FoldColumn =			{ fg = solarized.blue },
+		FoldColumn =				{ fg = solarized.blue },
 		IncSearch =				{ fg = solarized.highlight, bg = solarized.white, style = 'reverse' },
 		LineNr =				{ fg = solarized.line_numbers, bg = solarized.bg_alt },
-		CursorLineNr =			{ fg = solarized.accent },
-		MatchParen =			{ fg = solarized.purple, bg = solarized.none, style = 'bold' },
+		CursorLineNr =				{ fg = solarized.accent },
+		MatchParen =				{ fg = solarized.purple, bg = solarized.none, style = 'bold' },
 		ModeMsg =				{ fg = solarized.accent },
 		MoreMsg =				{ fg = solarized.accent },
 		NonText =				{ fg = solarized.disabled },
 		Pmenu =					{ fg = solarized.fg, bg = solarized.none },
 		PmenuSel =				{ fg = solarized.accent, bg = solarized.active },
 		PmenuSbar =				{ fg = solarized.text, bg = solarized.contrast },
-		PmenuThumb =			{ fg = solarized.fg, bg = solarized.accent },
+		PmenuThumb =				{ fg = solarized.fg, bg = solarized.accent },
 		Question =				{ fg = solarized.green },
-		QuickFixLine =			{ fg = solarized.highlight, bg = solarized.white, style = 'reverse' },
+		QuickFixLine =				{ fg = solarized.highlight, bg = solarized.white, style = 'reverse' },
 		qfLineNr =				{ fg = solarized.highlight, bg = solarized.white, style = 'reverse' },
 		Search =				{ fg = solarized.highlight, bg = solarized.white, style = 'reverse' },
-		SpecialKey =			{ fg = solarized.yellow },
+		SpecialKey =				{ fg = solarized.yellow },
 		SpellBad =				{ fg = solarized.red, bg = solarized.none },
 		SpellCap =				{ fg = solarized.blue, bg = solarized.none },
-		SpellLocal =			{ fg = solarized.cyan, bg = solarized.none },
+		SpellLocal =				{ fg = solarized.cyan, bg = solarized.none },
 		SpellRare =				{ fg = solarized.yellow, bg = solarized.none },
-		StatusLine =			{ fg = solarized.fg, bg = solarized.contrast },
-		StatusLineNC =  		{ fg = solarized.text, bg = solarized.disabled },
-		StatusLineTerm =		{ fg = solarized.fg, bg = solarized.contrast },
-		StatusLineTermNC =		{ fg = solarized.text, bg = solarized.disabled },
-		TabLineFill =			{ fg = solarized.fg },
-		TablineSel =			{ fg = solarized.bg, bg = solarized.accent },
+		StatusLine =				{ fg = solarized.fg, bg = solarized.contrast },
+		StatusLineNC =  			{ fg = solarized.text, bg = solarized.disabled },
+		StatusLineTerm =			{ fg = solarized.fg, bg = solarized.contrast },
+		StatusLineTermNC =			{ fg = solarized.text, bg = solarized.disabled },
+		TabLineFill =				{ fg = solarized.fg },
+		TablineSel =				{ fg = solarized.bg, bg = solarized.accent },
 		Tabline =				{ fg = solarized.fg },
 		Title =					{ fg = solarized.green, bg = solarized.none, style = 'bold' },
 		Visual =				{ fg = solarized.none, bg = solarized.selection },
 		VisualNOS =				{ fg = solarized.none, bg = solarized.selection },
-		WarningMsg =			{ fg = solarized.purple },
+		WarningMsg =				{ fg = solarized.purple },
 		WildMenu =				{ fg = solarized.orange, bg = solarized.none, style = 'bold' },
-		CursorColumn =			{ fg = solarized.none, bg = solarized.active },
-		CursorLine =			{ fg = solarized.none, bg = solarized.bg_alt },
-		ToolbarLine =			{ fg = solarized.fg, bg = solarized.bg_alt },
-		ToolbarButton =			{ fg = solarized.fg, bg = solarized.none, style = 'bold' },
-		NormalMode =			{ fg = solarized.accent, bg = solarized.none, style = 'reverse' },
-		InsertMode =			{ fg = solarized.green, bg = solarized.none, style = 'reverse' },
-		ReplacelMode =			{ fg = solarized.red, bg = solarized.none, style = 'reverse' },
-		VisualMode =			{ fg = solarized.yellow, bg = solarized.none, style = 'reverse' },
-		CommandMode =			{ fg = solarized.gray, bg = solarized.none, style = 'reverse' },
+		CursorColumn =				{ fg = solarized.none, bg = solarized.active },
+		CursorLine =				{ fg = solarized.none, bg = solarized.bg_alt },
+		ToolbarLine =				{ fg = solarized.fg, bg = solarized.bg_alt },
+		ToolbarButton =				{ fg = solarized.fg, bg = solarized.none, style = 'bold' },
+		NormalMode =				{ fg = solarized.accent, bg = solarized.none, style = 'reverse' },
+		InsertMode =				{ fg = solarized.green, bg = solarized.none, style = 'reverse' },
+		ReplacelMode =				{ fg = solarized.red, bg = solarized.none, style = 'reverse' },
+		VisualMode =				{ fg = solarized.yellow, bg = solarized.none, style = 'reverse' },
+		CommandMode =				{ fg = solarized.gray, bg = solarized.none, style = 'reverse' },
 		Warnings =				{ fg = solarized.purple },
 
-        healthError =           { fg = solarized.error },
-        healthSuccess =         { fg = solarized.green },
-        healthWarning =         { fg = solarized.purple },
+        	healthError =           		{ fg = solarized.error },
+        	healthSuccess =         		{ fg = solarized.green },
+        	healthWarning =        			{ fg = solarized.purple },
 
         -- Dashboard
-        DashboardShortCut =                     { fg = solarized.gray },
-        DashboardHeader =                       { fg = solarized.gray },
-        DashboardCenter =                       { fg = solarized.gray },
-        DashboardFooter =                       { fg = solarized.green },
+        DashboardShortCut =                     	{ fg = solarized.gray },
+        DashboardHeader =                      	 	{ fg = solarized.gray },
+        DashboardCenter =                       	{ fg = solarized.gray },
+        DashboardFooter =                       	{ fg = solarized.green },
 
 	}
 
@@ -165,11 +182,11 @@ theme.loadEditor = function ()
 
     --Set transparent background
     if vim.g.solarized_disable_background == true then
-		editor.Normal =				{ fg = solarized.fg, bg = solarized.none } -- normal text and background color
-		editor.SignColumn =			{ fg = solarized.fg, bg = solarized.none }
+		editor.Normal =					{ fg = solarized.fg, bg = solarized.none } -- normal text and background color
+		editor.SignColumn =				{ fg = solarized.fg, bg = solarized.none }
     else
-		editor.Normal =				{ fg = solarized.fg, bg = solarized.bg } -- normal text and background color
-		editor.SignColumn =			{ fg = solarized.fg, bg = solarized.bg }
+		editor.Normal =					{ fg = solarized.fg, bg = solarized.bg } -- normal text and background color
+		editor.SignColumn =				{ fg = solarized.fg, bg = solarized.bg }
     end
 
     -- Remove window split borders
@@ -254,16 +271,16 @@ theme.loadTreeSitter = function ()
 
     -- Italic comments
     if vim.g.solarized_italic_comments == true then
-        treesitter.TSComment=                  { fg = solarized.comments , bg = solarized.none, style = 'bold,italic' }    -- For comment blocks.
+        treesitter.TSComment=                  	{ fg = solarized.comments , bg = solarized.none, style = 'bold,italic' }    -- For comment blocks.
     else
-        treesitter.TSComment=                  { fg = solarized.comments }    -- For comment blocks.
+        treesitter.TSComment=                  	{ fg = solarized.comments }    -- For comment blocks.
     end
 
     if vim.g.solarized_italic_keywords == true then
-        treesitter.TSConditional =             { fg = solarized.greeen, style = 'italic' }    -- For keywords related to conditionnals.
-        treesitter.TSKeyword =                 { fg = solarized.green, style = 'italic' } -- For keywords that don't fall in previous categories.
-        treesitter.TSRepeat =                  { fg = solarized.green, style = 'bold,italic' }    -- For keywords related to loops.
-        treesitter.TSKeywordFunction =         { fg = solarized.green, style = 'bold,italic' } -- For keywords used to define a fuction.
+        treesitter.TSConditional =             	{ fg = solarized.greeen, style = 'italic' }    -- For keywords related to conditionnals.
+        treesitter.TSKeyword =                 	{ fg = solarized.green, style = 'italic' } -- For keywords that don't fall in previous categories.
+        treesitter.TSRepeat =                 	{ fg = solarized.green, style = 'bold,italic' }    -- For keywords related to loops.
+        treesitter.TSKeywordFunction =         	{ fg = solarized.green, style = 'bold,italic' } -- For keywords used to define a fuction.
     else
         treesitter.TSConditional =             { fg = solarized.green}    -- For keywords related to conditionnals.
         treesitter.TSKeyword =                 { fg = solarized.green} -- For keywords that don't fall in previous categories.
